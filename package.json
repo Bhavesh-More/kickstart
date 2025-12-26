@@ -1,19 +1,37 @@
 {
-  "name": "kickstart",
+  "name": "create-kickstart",
   "version": "1.0.0",
   "description": "Unified CLI to kickstart projects across frameworks with opinionated folder structures",
-   "bin": {
+  "bin": {
     "create-kickstart": "dist/index.js"
   },
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scrpits/shebang.js",
     "dev": "tsx src/index.ts"
   },
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["cli", "scaffold", "kickstart", "create-app"],
+  "keywords": [
+    "cli",
+    "scaffold",
+    "kickstart",
+    "create-app"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2",
+    "fs-extra": "^11.3.3",
+    "inquirer": "^8.2.7",
+    "ora": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^25.0.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
 }

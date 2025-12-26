@@ -3,8 +3,9 @@
     "target": "ES2022",
     "module": "ES2022",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "moduleResolution": "node",
     "strict": true
-  }
+  },
+    "include": ["src/**/*", "generators/**/*"]
 }
