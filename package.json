@@ -1,0 +1,19 @@
+{
+  "name": "kickstart",
+  "version": "1.0.0",
+  "description": "Unified CLI to kickstart projects across frameworks with opinionated folder structures",
+   "bin": {
+    "create-kickstart": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["cli", "scaffold", "kickstart", "create-app"],
+  "author": "",
+  "license": "MIT"
+}
