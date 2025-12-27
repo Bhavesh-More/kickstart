@@ -1,18 +1,44 @@
 # KickStart 🚀
 
-KickStart is a unified project scaffolding CLI that lets you bootstrap projects
-across multiple tech stacks using a single command.
+**KickStart** is a unified CLI tool to bootstrap projects across multiple tech stacks using **one simple command**.
 
-## Vision
-Stop remembering different project creation commands.
-Use one CLI to scaffold projects with opinionated, production-ready structures.
+Stop remembering different project creation commands.  
+KickStart provides a **single, consistent, CLI-first experience** with opinionated, production-ready project structures.
 
-## Features
-- Single command project creation
-- Multiple frameworks support (React, Flutter, Node, etc.)
-- Predefined folder structures (dashboard, MVC, clean architecture)
-- CLI-first developer experience
+---
 
-## Installation
+## ✨ Vision
+
+Developers waste time remembering and switching between:
+- `npm create vite@latest`
+- `flutter create`
+- `npx react-native init`
+- `create-expo-app`
+
+**KickStart solves this** by offering:
+> One command. Any stack. Clean structure.
+
+---
+
+## 🔧 Features
+
+- Single-command project creation
+- Supports multiple frameworks:
+  - React
+  - Flutter
+  - React Native (Expo & Community CLI)
+- Opinionated folder structures:
+  - Minimal
+  - Dashboard
+  - Scalable architecture patterns
+- Interactive CLI with arrow-key navigation
+- Zero global installs required
+
+---
+
+## 📦 Installation
+
+No installation needed. Run directly using `npx`:
+
 ```bash
-npx kickstart
+npx create-kickstart
