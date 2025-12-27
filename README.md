@@ -1,4 +1,4 @@
-# KickStart 🚀
+# KickStart
 
 **KickStart** is a unified CLI tool to bootstrap projects across multiple tech stacks using **one simple command**.
 
@@ -20,19 +20,14 @@ Developers waste time remembering and switching between:
 
 ---
 
-## 🔧 Features
+## Features
 
 - Single-command project creation
 - Supports multiple frameworks:
   - React
   - Flutter
   - React Native (Expo & Community CLI)
-- Opinionated folder structures:
-  - Minimal
-  - Dashboard
-  - Scalable architecture patterns
 - Interactive CLI with arrow-key navigation
-- Zero global installs required
 
 ---
 
