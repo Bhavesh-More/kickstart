@@ -1,11 +1,16 @@
 import { Command } from "commander";
 import inquirer from "inquirer";
 import { createReactApp } from "../generators/react";
+import { createFlutterApp } from "../generators/flutter";
+import { createReactNativeApp } from "../generators/react-native";
+
+type Framework = "React" | "Flutter" | "react-native";
 
 type Answers = {
   name: string;
-  framework: "React" | "Flutter";
+  framework: Framework;
   structure: "Minimal" | "Dashboard";
+  rnType?: "expo" | "native";
 };
 
 const program = new Command();
@@ -30,7 +35,17 @@ async function run() {
       type: "list",
       name: "framework",
       message: "Choose framework:",
-      choices: ["React", "Flutter"],
+      choices: ["React", "Flutter","react-native"],
+    },
+     {
+      type: "list",
+      name: "rnType",
+      message: "Choose React Native setup:",
+      when: (answers) => answers.framework === "react-native",
+      choices: [
+        { name: "Expo (recommended)", value: "expo" },
+        { name: "React Native CLI", value: "native" },
+      ],
     },
     {
       type: "list",
@@ -40,8 +55,19 @@ async function run() {
     },
   ]);
 
-  if(answers.framework.toLowerCase() === "react") createReactApp(answers.name);
+ switch (answers.framework) {
+    case "React":
+      createReactApp(answers.name);
+      break;
 
+    case "Flutter":
+      createFlutterApp(answers.name);
+      break;
+
+    case "react-native":
+      createReactNativeApp(answers.name, answers.rnType!);
+      break;
+  }
 }
 
 run();
