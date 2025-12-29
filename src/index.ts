@@ -3,8 +3,9 @@ import inquirer from "inquirer";
 import { createReactApp } from "../generators/react";
 import { createFlutterApp } from "../generators/flutter";
 import { createReactNativeApp } from "../generators/react-native";
+import { createNextApp } from "../generators/next";
 
-type Framework = "React" | "Flutter" | "react-native";
+type Framework = "React" | "Flutter" | "react-native" | "nextjs";
 
 type Answers = {
   name: string;
@@ -35,7 +36,7 @@ async function run() {
       type: "list",
       name: "framework",
       message: "Choose framework:",
-      choices: ["React", "Flutter","react-native"],
+      choices: ["React", "Flutter","react-native","nextjs"],
     },
      {
       type: "list",
@@ -66,6 +67,10 @@ async function run() {
 
     case "react-native":
       createReactNativeApp(answers.name, answers.rnType!);
+      break;
+
+       case "nextjs":
+      createNextApp(answers.name, answers.structure);
       break;
   }
 }
