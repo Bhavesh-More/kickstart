@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "framework": "react",
+    "structure": "minimal",
+    "description": "Minimal React folder structure"
+  },
+  "tree": {
+    "src": {
+      "assets": {},
+      "components": {},
+      "hooks": {},
+      "pages": {},
+      "services": {},
+      "utils": {}
+    }
+  }
+}

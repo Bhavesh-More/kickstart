@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "framework": "react",
+    "structure": "dashboard",
+    "description": "Scalable React dashboard folder structure"
+  },
+  "tree": {
+    "src": {
+      "app": {},
+      "assets": {
+        "images": {},
+        "icons": {},
+        "styles": {}
+      },
+      "components": {
+        "common": {},
+        "ui": {}
+      },
+      "features": {},
+      "hooks": {},
+      "layouts": {},
+      "pages": {},
+      "routes": {},
+      "services": {},
+      "store": {},
+      "types": {},
+      "utils": {}
+    }
+  }
+}

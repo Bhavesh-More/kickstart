@@ -7,7 +7,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc && node scrpits/shebang.js",
+    "build": "tsc && node scripts/shebang.js",
     "dev": "tsx src/index.ts"
   },
   "engines": {

@@ -1,9 +1,9 @@
 import { Command } from "commander";
 import inquirer from "inquirer";
-import { createReactApp } from "../generators/react";
-import { createFlutterApp } from "../generators/flutter";
-import { createReactNativeApp } from "../generators/react-native";
-import { createNextApp } from "../generators/next";
+import { createReactApp } from "./generators/react.js";
+import { createFlutterApp } from "./generators/flutter.js";
+import { createReactNativeApp } from "./generators/react-native.js";
+import { createNextApp } from "./generators/next.js";
 
 type Framework = "React" | "Flutter" | "react-native" | "nextjs";
 
@@ -58,7 +58,7 @@ async function run() {
 
  switch (answers.framework) {
     case "React":
-      createReactApp(answers.name);
+      createReactApp(answers.name,answers.structure);
       break;
 
     case "Flutter":
