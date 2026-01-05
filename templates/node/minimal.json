@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "framework": "node",
+    "structure": "minimal",
+    "description": "Minimal Node.js project structure"
+  },
+  "tree": {
+    "src": {
+      "utils": {},
+      "config": {}
+    }
+  }
+}

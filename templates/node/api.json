@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "framework": "node",
+    "structure": "api",
+    "description": "api Node.js project structure"
+  },
+  "tree": {
+    "src": {
+        "controllers": {},
+        "routes": {},
+        "services": {},
+        "middlewares": {},
+        "models": {},
+        "utils": {},
+        "config": {}
+    }
+  }
+}
