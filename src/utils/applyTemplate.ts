@@ -1,13 +1,21 @@
-import fs from "fs-extra/esm";
-import * as path from "path";
+import fs from "fs";
+import path from "path";
 
 type TemplateTree = Record<string, any>;
 
 export function applyTemplate(
   templatePath: string,
-  targetDir: string
+  targetDir: string,
+  variables: Record<string, string> = {}
 ) {
-  const template = fs.readJsonSync(templatePath);
+  const template = JSON.parse(
+    fs.readFileSync(templatePath, "utf8")
+  );
+
+  const filesDir = path.join(
+    path.dirname(templatePath),
+    "files"
+  );
 
   function walk(tree: TemplateTree, currentDir: string) {
     for (const name in tree) {
@@ -15,11 +23,45 @@ export function applyTemplate(
       const fullPath = path.join(currentDir, name);
 
       if (typeof value === "object") {
-        fs.ensureDirSync(fullPath);
+        fs.mkdirSync(fullPath, { recursive: true });
         walk(value, fullPath);
+        continue;
+      }
+
+      if (typeof value === "string") {
+        let content = value;
+
+        // External file reference
+        if (value.startsWith("@file:")) {
+          const fileName = value.replace("@file:", "");
+          const sourcePath = path.join(filesDir, fileName);
+          content = fs.readFileSync(sourcePath, "utf8");
+        }
+
+        // Variable interpolation
+        for (const key in variables) {
+          content = content.replaceAll(
+            `{{${key}}}`,
+            variables[key]
+          );
+        }
+
+        fs.mkdirSync(path.dirname(fullPath), { recursive: true });
+
+        // Safe write (do not overwrite)
+        if (!fs.existsSync(fullPath)) {
+          fs.writeFileSync(fullPath, content);
+        }
       }
     }
   }
 
-  walk(template.tree, targetDir);
+  try {
+    walk(template.tree, targetDir);
+    return true;
+  } catch (error) {
+    console.error("Error applying template:", error);
+    return false;
+  }
+
 }

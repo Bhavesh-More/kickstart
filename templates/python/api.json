@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "framework": "python",
+    "structure": "api",
+    "description": "api Python project structure"
+  },
+  "tree": {
+    "src": {
+        "app": {
+            "routes": {},
+            "models": {},
+            "services": {}  
+        },
+        "utils": {},
+        "config": {},
+        "main.py": "",
+        "requirements.txt": ""
+    }
+  }
+}
