@@ -5,8 +5,9 @@ import { createFlutterApp } from "./generators/flutter.js";
 import { createReactNativeApp } from "./generators/react-native.js";
 import { createNextApp } from "./generators/next.js";
 import { createNodeFrameWork } from "./generators/node.js";
+import { createPythonFramework } from "./generators/python.js";
 
-type Framework = "react" | "flutter" | "react-native" | "nextjs" | "node" ;
+type Framework = "react" | "flutter" | "react-native" | "nextjs" | "node" | "python";
 
 type Answers = {
   name: string;
@@ -14,6 +15,7 @@ type Answers = {
   structure: "Minimal" | "Dashboard";
   rnType?: "expo" | "native";
   nodeStructure?: "minimal" | "api";
+  pythonStructure?: "minimal" | "api";
 
 };
 
@@ -45,6 +47,7 @@ async function run() {
       { name: "React Native", value: "react-native" },
       { name: "Next.js", value: "nextjs" },
       { name: "Node.js", value: "node" },
+      { name: "Python", value: "python" },
     ],
   },
   {
@@ -74,6 +77,16 @@ async function run() {
       { name: "API", value: "api" },
     ],
   },
+  {
+    type: "list",
+    name: "pythonStructure",
+    message: "Choose Python structure:",
+    when: (a) => a.framework === "python",
+    choices: [
+      { name: "Minimal", value: "minimal" },
+      { name: "API", value: "api" },
+    ],
+  }
 ]);
 
 switch (answers.framework) {
@@ -97,6 +110,13 @@ switch (answers.framework) {
     createNodeFrameWork(
       answers.name,
       answers.nodeStructure ?? "minimal"
+    );
+    break;
+
+    case "python":
+    createPythonFramework(
+      answers.name,
+      answers.pythonStructure ?? "minimal"
     );
     break;
 }
