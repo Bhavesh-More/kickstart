@@ -2,19 +2,57 @@
   "meta": {
     "framework": "python",
     "structure": "api",
-    "description": "api Python project structure"
+    "description": "Production-grade Python API project structure"
   },
   "tree": {
-    "src": {
-        "app": {
-            "routes": {},
-            "models": {},
-            "services": {}  
+    "server": {
+      "ai": {},
+      "aiBack": {},
+      "blockchain": {
+        "contracts": {},
+        "scripts": {}
+      },
+      "app": {
+        "api": {
+          "v1": {
+            "controllers": {
+              "farm_controller.py": "",
+              "farmer_controller.py": ""
+            },
+            "dtos": {
+              "farm_dto.py": "",
+              "farmer_dto.py": ""
+            },
+            "models": {
+              "farmer_model.py": ""
+            },
+            "routes": {
+              "farm_routes.py": "",
+              "farmer_routes.py": ""
+            },
+            "services": {
+              "farmer_service.py": ""
+            },
+            "utils": {
+              "area.py": "",
+              "geo_projection.py": ""
+            }
+          }
         },
-        "utils": {},
-        "config": {},
-        "main.py": "",
-        "requirements.txt": ""
-    }
+        "config": {
+          "database.py": "",
+          "jwt.py": "",
+          "security.py": "",
+          "settings.py": ""
+        }
+      },
+      "server.py": ""
+    },
+   
+    "tests": {
+      "__init__.py": ""
+    },
+    "requirements.txt": "",
+    "abi.json": ""
   }
 }
