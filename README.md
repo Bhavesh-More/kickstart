@@ -13,7 +13,7 @@ Developers waste time remembering and switching between:
 - `npm create vite@latest`
 - `flutter create`
 - `npx react-native init`
-- `create-expo-app`
+- `create-expo-app`   
 
 **KickStart solves this** by offering:
 > One command. Any stack. Clean structure.
